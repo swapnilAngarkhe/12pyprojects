@@ -2,7 +2,7 @@ import random
 import string
 from words import words
 
-def get_word(words):
+def get_valid_word(words):
     word=random.choice(word)
     while '-' in word or ' ' in word:
         word=random.choice(word)
@@ -10,11 +10,13 @@ def get_word(words):
     return word.upper()
 
 def hangman(): 
-    word=get_word(word) #letters in the word
+    word=get_valid_word(words) #letters in the word
     word_letters=set(word)
-    alphabet=set(string.ascii_uppercase).upper()
+    alphabet=set(string.ascii_uppercase)
     used_letters=set() #alredy gussed letter by the user
-    # youuuuu leffffttt hereeee
+    
+    user_letter=input('guess a letter: ').upper()
+    
     
     #getting the input
     while len(word_letters)>0:
